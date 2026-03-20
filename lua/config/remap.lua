@@ -24,3 +24,9 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
+
+vim.keymap.set("n", "<leader>cd", function()
+  local dir = vim.fn.expand("%:p:h")
+  dir = dir:gsub("^oil://", "")
+  vim.fn.chdir(dir)
+end)
